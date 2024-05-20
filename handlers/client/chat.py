@@ -10,7 +10,7 @@ from loader import ADMIN
 from utils.database import users as dbusers
 from filters import checkAdmin
 
-@dp.message_handler(checkAdmin(),commands=['start'])
+@dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     if checkAdmin():
         await message.answer(f"Assalamu alaykum admin!!!", reply_markup=await get_start_admin())
@@ -153,4 +153,3 @@ async def photo(message: types.Message):
 @dp.message_handler()
 async def echo(message: types.Message):
     await bot.send_message(chat_id=message.chat.id, text=message.text, reply_markup=ReplyKeyboardRemove())
-    print('echo')

@@ -11,7 +11,7 @@ from loader import CHANNEL, bot
 class CustomMiddleware(BaseMiddleware):
     async def on_process_message(self, message: types.Message, data: dict):
         print(message.text)
-        if not message.text == '/start' and not message.text == '/voice':
+        if not message.text == '/start':
             user = message.from_user
             if user.id:
                 for channel in CHANNEL:
@@ -29,7 +29,7 @@ class CustomMiddleware(BaseMiddleware):
                         print(f"{member.status}")
             else:
                 await  message.answer("Username is required")
-                raise CancelHandler()
+                # raise CancelHandler()
         elif message.text == '/voice':
             inline_button = InlineKeyboardMarkup()
             for channel in CHANNEL:
