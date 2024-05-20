@@ -1,6 +1,5 @@
 from aiogram import executor
 from loader import dp
-#hello world
 import filters
 import middleware
 import handlers
